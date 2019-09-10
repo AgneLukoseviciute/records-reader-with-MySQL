@@ -9,16 +9,15 @@ import java.util.List;
 
 public abstract class CompareHelper {
 
-
-
-    //return diffsInfo
-
     /**
+     * checkForDifferences takes two lists of Athletes, a source of truth and a list to be compared to the source of truth.
+     *  It calls checkAllAttributes on the athletes and returns a list of Mismatch info.
      *
-     * @param csvAthletes
-     * @param otherAthletes
-     * @param otherFileType
+     * @param csvAthletes is a list of athletes from CSV file, it is the 'source of truth'
+     * @param otherAthletes is a list of athletes from a different file
+     * @param otherFileType is a String naming the type of the different file
      */
+
     public static List<Mismatch> checkForDifferences(List<Athlete> csvAthletes, List<Athlete> otherAthletes, String otherFileType){
 
         int otherIndex = 0;
@@ -29,7 +28,7 @@ public abstract class CompareHelper {
 
             if (!csvAthletes.get(i).getName().equals(otherAthletes.get(otherIndex).getName())){
                 PrintDifferences.printEntryMissing(csvAthletes.get(i).getName(), otherFileType);
-                diffsInfo.add(new Mismatch(csvAthletes.get(i).getName(), "not found", null, null));
+                diffsInfo.add(new Mismatch(csvAthletes.get(i).getName(), "entry not found", null, null));
             }
             else {
                 diffsInfo.addAll(checkAllAttributes(csvAthletes.get(i), otherAthletes.get(otherIndex)));
@@ -41,6 +40,14 @@ public abstract class CompareHelper {
         return diffsInfo;
     }
 
+    /**
+     * checkAllAttributes calls the methods for checking each attribute. If the call returns false (meaning there is a
+     *  difference), and checkAllAttributes adds a Mismatch object describing the difference to a List of Mismatches.
+     *
+     * @param csvAthlete is an Athlete object retrieved from the source of truth CSV
+     * @param otherAthlete is an Athlete object retrieved from a different file
+     * @return this method returns the list of Mismatches that it created and added the differences to.
+     */
     public static List<Mismatch> checkAllAttributes(Athlete csvAthlete, Athlete otherAthlete) {
         List<Mismatch> klaidos = new ArrayList<>();
 

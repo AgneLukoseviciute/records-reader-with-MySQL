@@ -1,6 +1,9 @@
 package com.lukoseviciute.programming.util;
 
 import com.lukoseviciute.programming.models.Athlete;
+import com.lukoseviciute.programming.models.Mismatch;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class CompareAll {
@@ -12,6 +15,9 @@ public class CompareAll {
     private List<Athlete> jsonAthleteList;
     private List<Athlete> xmlAthleteList;
 
+    private List<Mismatch> jsonDiffs = new ArrayList<>();
+    private List<Mismatch> xmlDiffs = new ArrayList<>();
+
     public CompareAll(String csvFile, String jsonFile, String xmlFile) {
         csvRead = new CSVFileReader();
         jsonRead = new JSONFileReader();
@@ -22,19 +28,15 @@ public class CompareAll {
     }
 
     public void compare(){
-        CompareHelper.checkForDifferences(csvAthleteList, jsonAthleteList, "JSON");
-        CompareHelper.checkForDifferences(csvAthleteList, xmlAthleteList, "XML");
+        jsonDiffs = CompareHelper.checkForDifferences(csvAthleteList, jsonAthleteList, "JSON");
+        xmlDiffs = CompareHelper.checkForDifferences(csvAthleteList, xmlAthleteList, "XML");
     }
 
-    public List<Athlete> getCsvAthleteList() {
-        return csvAthleteList;
+    public List<Mismatch> getJsonDiffs() {
+        return jsonDiffs;
     }
 
-    public List<Athlete> getJsonAthleteList() {
-        return jsonAthleteList;
-    }
-
-    public List<Athlete> getXmlAthleteList() {
-        return xmlAthleteList;
+    public List<Mismatch> getXmlDiffs() {
+        return xmlDiffs;
     }
 }

@@ -3,11 +3,12 @@ package com.lukoseviciute.programming.util;
 import com.lukoseviciute.programming.models.Mismatch;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public abstract class PrintDifferences {
 
-    public static void printDiffs(ArrayList<Mismatch> arrayListOfDiffs, String otherFileType){
+    public static void printDiffs(List<Mismatch> arrayListOfDiffs, String otherFileType){
 
         if (arrayListOfDiffs.isEmpty()){
             System.out.println("No differences in " + otherFileType + "file.");
