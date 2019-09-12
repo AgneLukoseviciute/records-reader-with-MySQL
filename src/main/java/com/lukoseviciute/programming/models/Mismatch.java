@@ -6,12 +6,14 @@ public class Mismatch {
     String attribute;
     String trueVal;
     String otherVal;
+    String otherFile;
 
-    public Mismatch(String name, String type, String val1, String val2){
+    public Mismatch(String name, String type, String val1, String val2, String fileType){
         this.athleteName = name;
         this.attribute = type;
         this.trueVal = val1;
         this.otherVal = val2;
+        this.otherFile = fileType;
     }
 
     public Mismatch(){
@@ -32,5 +34,9 @@ public class Mismatch {
 
     public String getOtherVal() {
         return otherVal;
+    }
+
+    public String getOtherFile() {
+        return otherFile;
     }
 }

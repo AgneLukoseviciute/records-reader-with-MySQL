@@ -28,10 +28,10 @@ public abstract class CompareHelper {
 
             if (!csvAthletes.get(i).getName().equals(otherAthletes.get(otherIndex).getName())){
                 PrintDifferences.printEntryMissing(csvAthletes.get(i).getName(), otherFileType);
-                diffsInfo.add(new Mismatch(csvAthletes.get(i).getName(), "entry not found", null, null));
+               // diffsInfo.add(new Mismatch(csvAthletes.get(i).getName(), "entry not found", null, null));
             }
             else {
-                diffsInfo.addAll(checkAllAttributes(csvAthletes.get(i), otherAthletes.get(otherIndex)));
+                diffsInfo.addAll(checkAllAttributes(csvAthletes.get(i), otherAthletes.get(otherIndex), otherFileType));
                 otherIndex++;
             }
         }
@@ -48,24 +48,24 @@ public abstract class CompareHelper {
      * @param otherAthlete is an Athlete object retrieved from a different file
      * @return this method returns the list of Mismatches that it created and added the differences to.
      */
-    public static List<Mismatch> checkAllAttributes(Athlete csvAthlete, Athlete otherAthlete) {
+    public static List<Mismatch> checkAllAttributes(Athlete csvAthlete, Athlete otherAthlete, String checkedFileType) {
         List<Mismatch> klaidos = new ArrayList<>();
 
         if (!checkRank(csvAthlete, otherAthlete)){
             klaidos.add(new Mismatch
-                    (csvAthlete.getName(), "Rank", Integer.toString(csvAthlete.getRank()), Integer.toString(otherAthlete.getRank())));
+                    (csvAthlete.getName(), "Rank", Integer.toString(csvAthlete.getRank()), Integer.toString(otherAthlete.getRank()), checkedFileType));
         }
         if (!checkMark(csvAthlete, otherAthlete)){
             klaidos.add(new Mismatch
-                    (csvAthlete.getName(), "Mark", csvAthlete.getMark(), otherAthlete.getMark()));
+                    (csvAthlete.getName(), "Mark", csvAthlete.getMark(), otherAthlete.getMark(), checkedFileType));
         }
         if (!checkDate(csvAthlete, otherAthlete)){
             klaidos.add(new Mismatch
-                    (csvAthlete.getName(), "Date", csvAthlete.getDate(), otherAthlete.getDate()));
+                    (csvAthlete.getName(), "Date", csvAthlete.getDate(), otherAthlete.getDate(), checkedFileType));
         }
         if (!checkLocation(csvAthlete, otherAthlete)){
             klaidos.add(new Mismatch
-                    (csvAthlete.getName(), "Location", csvAthlete.getLocation(), otherAthlete.getLocation()));
+                    (csvAthlete.getName(), "Location", csvAthlete.getLocation(), otherAthlete.getLocation(), checkedFileType));
         }
 
         return klaidos;

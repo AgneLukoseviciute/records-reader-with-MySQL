@@ -15,9 +15,9 @@ public class CompareAll {
     private List<Athlete> jsonAthleteList;
     private List<Athlete> xmlAthleteList;
 
-    private List<Mismatch> jsonDiffs = new ArrayList<>();
-    private List<Mismatch> xmlDiffs = new ArrayList<>();
+    private List<Mismatch> DiffsArr = new ArrayList<>();
 
+    //needs dependency injection?
     public CompareAll(String csvFile, String jsonFile, String xmlFile) {
         csvRead = new CSVFileReader();
         jsonRead = new JSONFileReader();
@@ -28,15 +28,12 @@ public class CompareAll {
     }
 
     public void compare(){
-        jsonDiffs = CompareHelper.checkForDifferences(csvAthleteList, jsonAthleteList, "JSON");
-        xmlDiffs = CompareHelper.checkForDifferences(csvAthleteList, xmlAthleteList, "XML");
+        DiffsArr = CompareHelper.checkForDifferences(csvAthleteList, jsonAthleteList, "JSON");
+        DiffsArr.addAll(CompareHelper.checkForDifferences(csvAthleteList, xmlAthleteList, "XML"));
     }
 
-    public List<Mismatch> getJsonDiffs() {
-        return jsonDiffs;
+    public List<Mismatch> getDiffsArr() {
+        return DiffsArr;
     }
 
-    public List<Mismatch> getXmlDiffs() {
-        return xmlDiffs;
-    }
 }
