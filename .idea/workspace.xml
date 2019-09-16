@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e2fd5356-b551-48ee-b40d-fb9e1537c805" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/lukoseviciute/programming/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/lukoseviciute/programming/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/lukoseviciute/programming/util/CompareAll.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/lukoseviciute/programming/util/CompareAll.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lukoseviciute/programming/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lukoseviciute/programming/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lukoseviciute/programming/util/CompareAll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lukoseviciute/programming/util/CompareAll.java" afterDir="false" />
-    </list>
+    <list default="true" id="e2fd5356-b551-48ee-b40d-fb9e1537c805" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -64,7 +58,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/lukoseviciute/programming/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
@@ -85,20 +79,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lukoseviciute/programming/util/XMLFileReader.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            <state relative-caret-position="210">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/config.properties">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/lukoseviciute/programming/util/XMLFileReader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="3" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
+            <state relative-caret-position="60">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -189,6 +183,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/lukoseviciute/programming/util/CompareAll.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lukoseviciute/programming/util/DBRetriever.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lukoseviciute/programming/Main.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -364,7 +359,7 @@
       <workItem from="1568618031869" duration="2269000" />
       <workItem from="1568622357355" duration="1106000" />
       <workItem from="1568639753272" duration="3114000" />
-      <workItem from="1568646284875" duration="293000" />
+      <workItem from="1568646284875" duration="498000" />
     </task>
     <servers />
   </component>
@@ -392,7 +387,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25539000" />
+    <option name="totallyTimeSpent" value="25744000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -570,6 +565,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lukoseviciute/programming/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="28" column="1" lean-forward="true" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lukoseviciute/programming/util/DBRetriever.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -580,10 +582,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lukoseviciute/programming/Main.java">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="28" column="1" lean-forward="true" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+        <state relative-caret-position="210">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>

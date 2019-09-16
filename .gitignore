@@ -1,0 +1,14 @@
+# General
+.DS_Store
+
+# Comiled class file
+*.class
+
+# Log file
+*.log
+.gradle
+build/
+
+# IntelliJ
+/out/
+.idea
