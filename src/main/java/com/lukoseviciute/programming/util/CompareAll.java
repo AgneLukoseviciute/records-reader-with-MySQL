@@ -17,17 +17,6 @@ public class CompareAll {
 
     private List<Mismatch> DiffsArr = new ArrayList<>();
 
-    /*
-
-    public CompareAll(String csvFile, String jsonFile, String xmlFile) {
-        csvRead = new CSVFileReader();
-        jsonRead = new JSONFileReader();
-        xmlRead = new XMLFileReader();
-        csvAthleteList = csvRead.intoObjects(csvFile);
-        jsonAthleteList = jsonRead.intoObjects(jsonFile);
-        xmlAthleteList = xmlRead.intoObjects(xmlFile);
-    }*/
-
     //needs dependency injection?
     private CompareAll(CompareAllBuilder builder){
         csvRead = new CSVFileReader();
@@ -38,8 +27,7 @@ public class CompareAll {
         xmlAthleteList = xmlRead.intoObjects(builder.xmlFile);
 
     }
-
-
+    
     public void compare(){
         DiffsArr = CompareHelper.checkForDifferences(csvAthleteList, jsonAthleteList, "JSON");
         DiffsArr.addAll(CompareHelper.checkForDifferences(csvAthleteList, xmlAthleteList, "XML"));
