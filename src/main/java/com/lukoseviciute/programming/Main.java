@@ -14,8 +14,11 @@ public class Main {
 
     public static void main(String[] args) {
 
-        //TODO: use builder design pattern.
-        CompareAll comparator = new CompareAll("assets/records.csv", "assets/records_tweaked.json", "assets/records_tweaked.xml");
+        CompareAll comparator = new CompareAll.CompareAllBuilder()
+                .csvFile("assets/records.csv")
+                .jsonFile("assets/records_tweaked.json")
+                .xmlFile("assets/records_tweaked.xml")
+                .build();
         comparator.compare();//return mismatch list
         PrintDifferences.printDiffs(comparator.getDiffsArr());
 
@@ -24,9 +27,6 @@ public class Main {
         try {
             getDB = new DBRetriever();
             List<Athlete> atletai = getDB.getAthletes();
-            for (Athlete atlete : atletai) {
-                System.out.println(atlete.getRank() + " " + atlete.getName() + " " + atlete.getMark() + " " + atlete.getDate() + " " + atlete.getLocation());
-            }
         } catch (Exception e) {
             e.printStackTrace();
         }

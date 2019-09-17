@@ -17,7 +17,8 @@ public class CompareAll {
 
     private List<Mismatch> DiffsArr = new ArrayList<>();
 
-    //needs dependency injection?
+    /*
+
     public CompareAll(String csvFile, String jsonFile, String xmlFile) {
         csvRead = new CSVFileReader();
         jsonRead = new JSONFileReader();
@@ -25,6 +26,17 @@ public class CompareAll {
         csvAthleteList = csvRead.intoObjects(csvFile);
         jsonAthleteList = jsonRead.intoObjects(jsonFile);
         xmlAthleteList = xmlRead.intoObjects(xmlFile);
+    }*/
+
+    //needs dependency injection?
+    private CompareAll(CompareAllBuilder builder){
+        csvRead = new CSVFileReader();
+        jsonRead = new JSONFileReader();
+        xmlRead = new XMLFileReader();
+        csvAthleteList = csvRead.intoObjects(builder.csvFile);
+        jsonAthleteList = jsonRead.intoObjects(builder.jsonFile);
+        xmlAthleteList = xmlRead.intoObjects(builder.xmlFile);
+
     }
 
 
@@ -35,6 +47,37 @@ public class CompareAll {
 
     public List<Mismatch> getDiffsArr() {
         return DiffsArr;
+    }
+
+    public static class CompareAllBuilder{
+
+        private String csvFile;
+        private String jsonFile;
+        private String xmlFile;
+
+        public CompareAllBuilder(){
+
+        }
+
+        public CompareAllBuilder csvFile(String csvFile){
+            this.csvFile = csvFile;
+            return this;
+        }
+
+        public CompareAllBuilder jsonFile(String jsonFile){
+            this.jsonFile = jsonFile;
+            return this;
+        }
+
+        public CompareAllBuilder xmlFile(String xmlFile){
+            this.xmlFile = xmlFile;
+            return this;
+        }
+
+        public CompareAll build(){
+            CompareAll comp = new CompareAll(this);
+            return comp;
+        }
     }
 
 }
