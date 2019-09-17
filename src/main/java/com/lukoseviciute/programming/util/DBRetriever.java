@@ -1,8 +1,13 @@
 package com.lukoseviciute.programming.util;
 
 
+import com.lukoseviciute.programming.models.Athlete;
+
+import java.sql.ResultSet;
 import java.io.IOException;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DBRetriever {
 
@@ -22,22 +27,28 @@ public class DBRetriever {
 
     }
 
-    public ResultSet getQueryResult() throws SQLException {
-        System.out.println("Connecting database...");
+    public List<Athlete> getAthletes() throws SQLException{
 
-        try(Connection conn = DriverManager.getConnection(url, username, password)) {
-            System.out.println("Database connected!");
-            Statement stmt = conn.createStatement();
-            String strSelect = "select * from hammer_women";
-            ResultSet rset = stmt.executeQuery(strSelect);
+        Connection conn = DriverManager.getConnection(url, username, password);
+        Statement statement = conn.createStatement();
+        ResultSet resultSet = statement.executeQuery("select * from hammer_women");
 
-            return rset;
+        List<Athlete> athletes = new ArrayList<>();
 
-        } catch(
-                SQLException e) {
-            throw new IllegalStateException("Cannot connect the database!", e);
+        while (resultSet.next()){
+            int rank = resultSet.getInt(2);
+            String mark = resultSet.getString(3);
+            String name = resultSet.getString(4);
+            String date = resultSet.getString(5);
+            String location = resultSet.getString(6);
+
+            athletes.add(new Athlete(rank, mark, name, date, location));
         }
-    }
 
+        resultSet.close();
+        conn.close();
+        return athletes;
+
+    }
 
 }
