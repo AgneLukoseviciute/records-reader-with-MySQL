@@ -11,25 +11,17 @@ import java.util.List;
 
 public class DBRetriever {
 
-    private String url;
-    private String username;
-    private String password;
-
-    public DBRetriever() throws IOException {
-
-        //reading config.properties
-        GetConfigValues properties = new GetConfigValues();
-        properties.getValues();
-
-        url = "jdbc:mysql://localhost:3306/athletes1?useTimezone=true&serverTimezone=UTC";
-        username = properties.getUserName();
-        password = properties.getPassword();
-
-    }
+    public DBRetriever(){}
 
     public List<Athlete> getAthletes() throws SQLException{
 
-        Connection conn = DriverManager.getConnection(url, username, password);
+        Connection conn = null;
+
+        try {
+            conn = GetDBConnection.getInstance().getConnection();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         Statement statement = conn.createStatement();
         ResultSet resultSet = statement.executeQuery("select * from hammer_women");
 

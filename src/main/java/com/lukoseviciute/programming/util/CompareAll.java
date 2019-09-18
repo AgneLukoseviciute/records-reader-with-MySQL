@@ -27,7 +27,8 @@ public class CompareAll {
         xmlAthleteList = xmlRead.intoObjects(builder.xmlFile);
 
     }
-    
+
+    //TODO: should return the list of mismatches. 
     public void compare(){
         DiffsArr = CompareHelper.checkForDifferences(csvAthleteList, jsonAthleteList, "JSON");
         DiffsArr.addAll(CompareHelper.checkForDifferences(csvAthleteList, xmlAthleteList, "XML"));
