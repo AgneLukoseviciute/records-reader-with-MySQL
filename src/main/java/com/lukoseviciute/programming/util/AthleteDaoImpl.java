@@ -1,19 +1,24 @@
 package com.lukoseviciute.programming.util;
 
-
 import com.lukoseviciute.programming.models.Athlete;
 
-import java.sql.ResultSet;
 import java.io.IOException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DBRetriever {
+public class AthleteDaoImpl implements AthleteDao {
 
-    public DBRetriever(){}
+    List<Athlete> athletes;
 
-    public List<Athlete> getAthletes() throws SQLException{
+    public AthleteDaoImpl(){}
+
+    //retrieves list of students from the database
+    @Override
+    public List<Athlete> getAllAthletes() throws SQLException {
 
         Connection conn = null;
 
@@ -42,5 +47,4 @@ public class DBRetriever {
         return athletes;
 
     }
-
 }

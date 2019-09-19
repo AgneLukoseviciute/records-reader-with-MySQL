@@ -1,8 +1,8 @@
 package com.lukoseviciute.programming;
 
 import com.lukoseviciute.programming.models.Athlete;
+import com.lukoseviciute.programming.util.AthleteDaoImpl;
 import com.lukoseviciute.programming.util.CompareAll;
-import com.lukoseviciute.programming.util.DBRetriever;
 import com.lukoseviciute.programming.util.PrintDifferences;
 
 import java.util.List;
@@ -20,10 +20,11 @@ public class Main {
         comparator.compare();
         PrintDifferences.printDiffs(comparator.getDiffsArr());
 
-        DBRetriever getDB = null;
+        AthleteDaoImpl athleteGetter = null;
+
         try {
-            getDB = new DBRetriever();
-            List<Athlete> atletai = getDB.getAthletes();
+            athleteGetter = new AthleteDaoImpl();
+            List<Athlete> dbAthletes = athleteGetter.getAllAthletes();
         } catch (Exception e) {
             e.printStackTrace();
         }
