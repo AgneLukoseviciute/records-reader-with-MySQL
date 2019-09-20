@@ -20,21 +20,17 @@ public abstract class CompareHelper {
 
     public static List<Mismatch> checkForDifferences(List<Athlete> dbAthletes, List<Athlete> otherAthletes, String otherFileType){
 
-        int otherIndex = 0;
-
         List<Mismatch> diffsInfo = new ArrayList<>();
+        Athlete otherAthlete;
 
-        for (int i = 0; i < dbAthletes.size() ; i++) {
-
-            if (!dbAthletes.get(i).getName().equals(otherAthletes.get(otherIndex).getName())){
-                PrintDifferences.printEntryMissing(dbAthletes.get(i).getName(), otherFileType);
-               // diffsInfo.add(new Mismatch(dbAthletes.get(i).getName(), "entry not found", null, null));
+        for(Athlete currAthlete: dbAthletes){
+            if (!otherAthletes.contains(currAthlete)){
+                PrintDifferences.printEntryMissing(currAthlete.getName(), otherFileType);
             }
-            else {
-                diffsInfo.addAll(checkAllAttributes(dbAthletes.get(i), otherAthletes.get(otherIndex), otherFileType));
-                otherIndex++;
+            else{
+              otherAthlete = otherAthletes.get(otherAthletes.indexOf(currAthlete));
+              diffsInfo.addAll(checkAllAttributes(currAthlete, otherAthlete, otherFileType));
             }
-
         }
 
         //dbAthletes.forEach(i -> )

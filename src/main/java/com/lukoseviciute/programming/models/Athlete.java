@@ -18,6 +18,21 @@ public class Athlete {
         this.location = location;
     }
 
+    //TODO: refactor?
+
+    // Overriding equals() to return true if names are equal.
+    @Override
+    public boolean equals(Object o) {
+
+        if(this == o) return true;
+
+        if(!(o instanceof Athlete)) return false;
+
+        Athlete oAthlete = (Athlete)o;
+
+        return this.name.equals(oAthlete.name);
+    }
+
     @SerializedName("Rank")
     @Expose
     @XmlElement(name = "Rank")
