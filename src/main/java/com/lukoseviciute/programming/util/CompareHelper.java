@@ -18,6 +18,7 @@ public abstract class CompareHelper {
      * @param otherFileType is a String naming the type of the different file
      */
 
+    //TODO: use lambda expression
     public static List<Mismatch> checkForDifferences(List<Athlete> dbAthletes, List<Athlete> otherAthletes, String otherFileType){
 
         List<Mismatch> diffsInfo = new ArrayList<>();
@@ -46,26 +47,26 @@ public abstract class CompareHelper {
      * @return this method returns the list of Mismatches that it created and added the differences to.
      */
     public static List<Mismatch> checkAllAttributes(Athlete csvAthlete, Athlete otherAthlete, String checkedFileType) {
-        List<Mismatch> klaidos = new ArrayList<>();
+        List<Mismatch> diffs = new ArrayList<>();
 
         if (!checkRank(csvAthlete, otherAthlete)){
-            klaidos.add(new Mismatch
+            diffs.add(new Mismatch
                     (csvAthlete.getName(), "Rank", Integer.toString(csvAthlete.getRank()), Integer.toString(otherAthlete.getRank()), checkedFileType));
         }
         if (!checkMark(csvAthlete, otherAthlete)){
-            klaidos.add(new Mismatch
+            diffs.add(new Mismatch
                     (csvAthlete.getName(), "Mark", csvAthlete.getMark(), otherAthlete.getMark(), checkedFileType));
         }
         if (!checkDate(csvAthlete, otherAthlete)){
-            klaidos.add(new Mismatch
+            diffs.add(new Mismatch
                     (csvAthlete.getName(), "Date", csvAthlete.getDate(), otherAthlete.getDate(), checkedFileType));
         }
         if (!checkLocation(csvAthlete, otherAthlete)){
-            klaidos.add(new Mismatch
+            diffs.add(new Mismatch
                     (csvAthlete.getName(), "Location", csvAthlete.getLocation(), otherAthlete.getLocation(), checkedFileType));
         }
 
-        return klaidos;
+        return diffs;
 
     }
 

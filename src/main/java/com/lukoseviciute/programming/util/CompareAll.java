@@ -36,7 +36,8 @@ public class CompareAll {
             e.printStackTrace();
         }
     }
-    
+
+    //TODO: only compare files provided during build
     public List<Mismatch> compare(){
         DiffsArr = CompareHelper.checkForDifferences(dbAthletes, csvAthleteList, "CSV");
         DiffsArr.addAll(CompareHelper.checkForDifferences(dbAthletes, jsonAthleteList, "JSON"));

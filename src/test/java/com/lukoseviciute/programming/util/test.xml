@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<List>
+    <Item>
+        <Athlete>Anita Włodarczyk (POL)</Athlete>
+        <Date>28 August 2016</Date>
+        <Location>Warsaw</Location>
+        <Mark>82.89 m (272 ft 2 3⁄4 in)</Mark>
+        <Rank>1</Rank>
+    </Item>
+    <Item>
+        <Athlete>Betty Heidler (DEU)</Athlete>
+        <Date>21 May 2011</Date>
+        <Location>Halle</Location>
+        <Mark>79.42 y (260 ft 6 3⁄4 in)</Mark>
+        <Rank>2</Rank>
+    </Item>
+    <Item>
+        <Athlete>Tatyana Lysenko (RUS)</Athlete>
+        <Date>16 August 2013</Date>
+        <Location>Moscow</Location>
+        <Mark>78.80 m (258 ft 6 1⁄4 in)</Mark>
+        <Rank>3</Rank>
+    </Item>
+    <Item>
+        <Athlete>DeAnna Price (USA)</Athlete>
+        <Date>23 June 2018</Date>
+        <Location>Des Moines</Location>
+        <Mark>78.12 m (256 ft 3 1⁄2 in)</Mark>
+        <Rank>4</Rank>
+    </Item>
+</List>
