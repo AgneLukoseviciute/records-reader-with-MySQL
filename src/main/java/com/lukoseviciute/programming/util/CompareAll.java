@@ -3,6 +3,7 @@ package com.lukoseviciute.programming.util;
 import com.lukoseviciute.programming.models.Athlete;
 import com.lukoseviciute.programming.models.Mismatch;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,9 +16,11 @@ public class CompareAll {
     private List<Athlete> jsonAthleteList;
     private List<Athlete> xmlAthleteList;
 
+    private List<Athlete> dbAthletes;
+
     private List<Mismatch> DiffsArr = new ArrayList<>();
 
-    //needs dependency injection?
+    //TODO: dependency injection?
     private CompareAll(CompareAllBuilder builder){
         csvRead = new CSVFileReader();
         jsonRead = new JSONFileReader();
@@ -26,12 +29,20 @@ public class CompareAll {
         jsonAthleteList = jsonRead.intoObjects(builder.jsonFile);
         xmlAthleteList = xmlRead.intoObjects(builder.xmlFile);
 
+        AthleteDaoImpl dbInfo = new AthleteDaoImpl();
+        try {
+            dbAthletes = dbInfo.getAllAthletes();
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
     }
 
     //TODO: should return the list of mismatches. 
     public void compare(){
-        DiffsArr = CompareHelper.checkForDifferences(csvAthleteList, jsonAthleteList, "JSON");
-        DiffsArr.addAll(CompareHelper.checkForDifferences(csvAthleteList, xmlAthleteList, "XML"));
+        DiffsArr = CompareHelper.checkForDifferences(dbAthletes, csvAthleteList, "CSV");
+        DiffsArr.addAll(CompareHelper.checkForDifferences(dbAthletes, jsonAthleteList, "JSON"));
+        DiffsArr.addAll(CompareHelper.checkForDifferences(dbAthletes, xmlAthleteList, "XML"));
+
     }
 
     public List<Mismatch> getDiffsArr() {

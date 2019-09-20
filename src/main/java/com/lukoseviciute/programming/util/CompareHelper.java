@@ -13,30 +13,31 @@ public abstract class CompareHelper {
      * checkForDifferences takes two lists of Athletes, a source of truth and a list to be compared to the source of truth.
      *  It calls checkAllAttributes on the athletes and returns a list of Mismatch info.
      *
-     * @param csvAthletes is a list of athletes from CSV file, it is the 'source of truth'
+     * @param dbAthletes is a list of athletes from CSV file, it is the 'source of truth'
      * @param otherAthletes is a list of athletes from a different file
      * @param otherFileType is a String naming the type of the different file
      */
 
-    public static List<Mismatch> checkForDifferences(List<Athlete> csvAthletes, List<Athlete> otherAthletes, String otherFileType){
+    public static List<Mismatch> checkForDifferences(List<Athlete> dbAthletes, List<Athlete> otherAthletes, String otherFileType){
 
         int otherIndex = 0;
 
         List<Mismatch> diffsInfo = new ArrayList<>();
 
-        for (int i = 0; i < csvAthletes.size() ; i++) {
+        for (int i = 0; i < dbAthletes.size() ; i++) {
 
-            if (!csvAthletes.get(i).getName().equals(otherAthletes.get(otherIndex).getName())){
-                PrintDifferences.printEntryMissing(csvAthletes.get(i).getName(), otherFileType);
-               // diffsInfo.add(new Mismatch(csvAthletes.get(i).getName(), "entry not found", null, null));
+            if (!dbAthletes.get(i).getName().equals(otherAthletes.get(otherIndex).getName())){
+                PrintDifferences.printEntryMissing(dbAthletes.get(i).getName(), otherFileType);
+               // diffsInfo.add(new Mismatch(dbAthletes.get(i).getName(), "entry not found", null, null));
             }
             else {
-                diffsInfo.addAll(checkAllAttributes(csvAthletes.get(i), otherAthletes.get(otherIndex), otherFileType));
+                diffsInfo.addAll(checkAllAttributes(dbAthletes.get(i), otherAthletes.get(otherIndex), otherFileType));
                 otherIndex++;
             }
+
         }
 
-        //csvAthletes.forEach(i -> )
+        //dbAthletes.forEach(i -> )
         return diffsInfo;
     }
 
