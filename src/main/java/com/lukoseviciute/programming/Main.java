@@ -17,8 +17,7 @@ public class Main {
                 .xmlFile("assets/records_tweaked.xml")
                 .build();
 
-        comparator.compare();
-        PrintDifferences.printDiffs(comparator.getDiffsArr());
+        PrintDifferences.printDiffs(comparator.compare());
 
         AthleteDaoImpl athleteGetter = null;
 

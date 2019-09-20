@@ -18,8 +18,6 @@ public class Athlete {
         this.location = location;
     }
 
-    //TODO: refactor?
-
     // Overriding equals() to return true if names are equal.
     @Override
     public boolean equals(Object o) {

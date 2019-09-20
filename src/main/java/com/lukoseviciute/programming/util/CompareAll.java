@@ -36,16 +36,12 @@ public class CompareAll {
             e.printStackTrace();
         }
     }
-
-    //TODO: should return the list of mismatches. 
-    public void compare(){
+    
+    public List<Mismatch> compare(){
         DiffsArr = CompareHelper.checkForDifferences(dbAthletes, csvAthleteList, "CSV");
         DiffsArr.addAll(CompareHelper.checkForDifferences(dbAthletes, jsonAthleteList, "JSON"));
         DiffsArr.addAll(CompareHelper.checkForDifferences(dbAthletes, xmlAthleteList, "XML"));
 
-    }
-
-    public List<Mismatch> getDiffsArr() {
         return DiffsArr;
     }
 
