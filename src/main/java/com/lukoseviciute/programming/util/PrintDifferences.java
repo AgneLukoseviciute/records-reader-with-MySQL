@@ -15,8 +15,8 @@ public abstract class PrintDifferences {
         }
         else {
             Mismatch currDiff;
-            for(int i = 0; i<arrayListOfDiffs.size(); i++){
-                currDiff = arrayListOfDiffs.get(i);
+            for (Mismatch arrayListOfDiff : arrayListOfDiffs) {
+                currDiff = arrayListOfDiff;
                 System.out.println("For athlete: " + currDiff.getAthleteName() + ", mismatch in " + currDiff.getAttribute() + ". DB value: " + currDiff.getTrueVal() + ", " + currDiff.getOtherFile() + " value: " + currDiff.getOtherVal());
             }
             System.out.println();

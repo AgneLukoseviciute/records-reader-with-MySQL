@@ -25,9 +25,17 @@ public class CompareAll {
         csvRead = new CSVFileReader();
         jsonRead = new JSONFileReader();
         xmlRead = new XMLFileReader();
-        csvAthleteList = csvRead.intoObjects(builder.csvFile);
-        jsonAthleteList = jsonRead.intoObjects(builder.jsonFile);
-        xmlAthleteList = xmlRead.intoObjects(builder.xmlFile);
+
+        if (builder.csvFile != null){
+            csvAthleteList = csvRead.intoObjects(builder.csvFile);
+        }
+        if (builder.jsonFile != null){
+            jsonAthleteList = jsonRead.intoObjects(builder.jsonFile);
+        }
+        if (builder.xmlFile != null){
+            xmlAthleteList = xmlRead.intoObjects(builder.xmlFile);
+        }
+
 
         AthleteDaoImpl dbInfo = new AthleteDaoImpl();
         try {
@@ -37,11 +45,16 @@ public class CompareAll {
         }
     }
 
-    //TODO: only compare files provided during build
     public List<Mismatch> compare(){
-        DiffsArr = CompareHelper.checkForDifferences(dbAthletes, csvAthleteList, "CSV");
-        DiffsArr.addAll(CompareHelper.checkForDifferences(dbAthletes, jsonAthleteList, "JSON"));
-        DiffsArr.addAll(CompareHelper.checkForDifferences(dbAthletes, xmlAthleteList, "XML"));
+        if (this.csvAthleteList != null){
+            DiffsArr = CompareHelper.checkForDifferences(dbAthletes, csvAthleteList, "CSV");
+        }
+        if (this.jsonAthleteList != null){
+            DiffsArr.addAll(CompareHelper.checkForDifferences(dbAthletes, jsonAthleteList, "JSON"));
+        }
+        if (this.xmlAthleteList != null){
+            DiffsArr.addAll(CompareHelper.checkForDifferences(dbAthletes, xmlAthleteList, "XML"));
+        }
 
         return DiffsArr;
     }
