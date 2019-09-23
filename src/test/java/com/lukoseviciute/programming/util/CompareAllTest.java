@@ -10,19 +10,16 @@ import java.util.List;
 
 public class CompareAllTest {
 
-   /* CompareAll testComparator = new CompareAll.CompareAllBuilder().build();
+    //TODO: manipulate db?
+    CompareAll testComparator = new CompareAll.CompareAllBuilder()
+            .csvFile("src/test/java/com/lukoseviciute/programming/util/testCompare.csv")
+            .jsonFile("src/test/java/com/lukoseviciute/programming/util/testCompare.json")
+            .xmlFile("src/test/java/com/lukoseviciute/programming/util/testCompare.xml")
+            .build();
 
     @Test
     public void testCompare(){
-        Athlete atletas1 = new Athlete(2, "60.48m", "Agne", "Liepos 27", "Palanga");
-        Athlete atletas2 = new Athlete(1, "60.49m", "Justas", "Liepos 28", "Palanga");
-        Athlete atletas11 = new Athlete(4, "60.48m", "Agne", "Liepos 27", "Palanga");
-        Athlete atletas22 = new Athlete(1, "72.50m", "Justas", "Liepos 28", "Palanga");
-        List<Athlete> sourceOfTruth = Arrays.asList(atletas1, atletas2);
-        List<Athlete> otherRecords1 = Arrays.asList(atletas11, atletas22);
-        List<Athlete> otherRecords2 = Arrays.asList(atletas1, atletas2);
-        List<Athlete> otherRecords3 = Arrays.asList(atletas1, atletas2);
         List<Mismatch> mismatches = testComparator.compare();
-        Assert.assertEquals(2, mismatches.size());
-    }*/
+        Assert.assertEquals(11, mismatches.size());
+    }
 }
