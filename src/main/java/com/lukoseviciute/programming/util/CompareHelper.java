@@ -7,6 +7,8 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.util.stream.Collectors.toList;
+
 public abstract class CompareHelper {
 
     /**
@@ -18,23 +20,22 @@ public abstract class CompareHelper {
      * @param otherFileType is a String naming the type of the different file
      */
 
-    //TODO: use lambda expression
     public static List<Mismatch> checkForDifferences(List<Athlete> dbAthletes, List<Athlete> otherAthletes, String otherFileType){
 
         List<Mismatch> diffsInfo = new ArrayList<>();
-        Athlete otherAthlete;
 
-        for(Athlete currAthlete: dbAthletes){
-            if (!otherAthletes.contains(currAthlete)){
-                PrintDifferences.printEntryMissing(currAthlete.getName(), otherFileType);
-            }
-            else{
-              otherAthlete = otherAthletes.get(otherAthletes.indexOf(currAthlete));
-              diffsInfo.addAll(checkAllAttributes(currAthlete, otherAthlete, otherFileType));
-            }
-        }
+        dbAthletes.stream()
+                .filter(athlete -> !otherAthletes.contains(athlete))
+                .forEach(athlete -> PrintDifferences.printEntryMissing(athlete.getName(), otherFileType));
 
-        //dbAthletes.forEach(i -> )
+
+        dbAthletes.stream()
+                .filter(athlete -> otherAthletes.contains(athlete))
+                .forEach(athlete -> {
+                    Athlete otherAthlete = otherAthletes.get(otherAthletes.indexOf(athlete));
+                    diffsInfo.addAll(checkAllAttributes(athlete, otherAthlete, otherFileType));
+                });
+
         return diffsInfo;
     }
 

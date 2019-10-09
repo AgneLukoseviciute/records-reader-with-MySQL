@@ -2,8 +2,11 @@ package com.lukoseviciute.programming;
 
 import com.lukoseviciute.programming.util.CompareAll;
 import com.lukoseviciute.programming.util.PrintDifferences;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import java.io.*;
 
-public class Main {
+public class Main extends HttpServlet{
 
     public static void main(String[] args) {
 
