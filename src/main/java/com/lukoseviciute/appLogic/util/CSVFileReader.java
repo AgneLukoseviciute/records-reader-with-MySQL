@@ -1,4 +1,4 @@
-package com.lukoseviciute.programming.util;
+package com.lukoseviciute.appLogic.util;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import com.lukoseviciute.programming.models.Athlete;
+import com.lukoseviciute.appLogic.models.Athlete;
 
 public class CSVFileReader implements FileReaderI{
 

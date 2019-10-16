@@ -1,4 +1,4 @@
-package com.lukoseviciute.programming.util;
+package com.lukoseviciute.appLogic.util;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

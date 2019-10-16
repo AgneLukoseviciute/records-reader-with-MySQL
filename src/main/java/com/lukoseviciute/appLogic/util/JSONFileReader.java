@@ -1,4 +1,4 @@
-package com.lukoseviciute.programming.util;
+package com.lukoseviciute.appLogic.util;
 
 import java.io.File;
 import java.io.FileReader;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.lukoseviciute.programming.models.Athlete;
+import com.lukoseviciute.appLogic.models.Athlete;
 
 public class JSONFileReader implements FileReaderI {
 

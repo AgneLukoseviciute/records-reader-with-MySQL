@@ -1,4 +1,4 @@
-package com.lukoseviciute.programming.models;
+package com.lukoseviciute.appLogic.models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

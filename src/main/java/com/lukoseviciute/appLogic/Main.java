@@ -1,12 +1,9 @@
-package com.lukoseviciute.programming;
+package com.lukoseviciute.appLogic;
 
-import com.lukoseviciute.programming.util.CompareAll;
-import com.lukoseviciute.programming.util.PrintDifferences;
-import javax.servlet.*;
-import javax.servlet.http.*;
-import java.io.*;
+import com.lukoseviciute.appLogic.util.CompareAll;
+import com.lukoseviciute.appLogic.util.PrintDifferences;
 
-public class Main extends HttpServlet{
+public class Main{
 
     public static void main(String[] args) {
 

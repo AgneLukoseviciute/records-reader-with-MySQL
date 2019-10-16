@@ -12,7 +12,7 @@ repositories {
     mavenCentral()
 }
 
-mainClassName = "com.lukoseviciute.programming.Main"
+mainClassName = "com.lukoseviciute.appLogic.Main"
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'

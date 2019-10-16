@@ -1,6 +1,6 @@
-package com.lukoseviciute.programming.util;
+package com.lukoseviciute.appLogic.util;
 
-import com.lukoseviciute.programming.models.Athlete;
+import com.lukoseviciute.appLogic.models.Athlete;
 
 import java.sql.SQLException;
 import java.util.List;

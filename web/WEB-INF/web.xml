@@ -11,4 +11,9 @@
     <servlet-class>com.lukoseviciute.programming.Main</servlet-class>
 </servlet>
 
+    <servlet-mapping>
+        <servlet-name>idekName</servlet-name>
+        <url-pattern>/trying</url-pattern>
+    </servlet-mapping>
+
 </web-app>

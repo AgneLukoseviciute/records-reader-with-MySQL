@@ -1,13 +1,10 @@
-package com.lukoseviciute.programming.util;
+package com.lukoseviciute.appLogic.util;
 
-import com.lukoseviciute.programming.models.Athlete;
-import com.lukoseviciute.programming.models.Mismatch;
+import com.lukoseviciute.appLogic.models.Athlete;
+import com.lukoseviciute.appLogic.models.Mismatch;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
-
-import static java.util.stream.Collectors.toList;
 
 public abstract class CompareHelper {
 

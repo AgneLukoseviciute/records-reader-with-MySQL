@@ -1,15 +1,12 @@
-package com.lukoseviciute.programming.util;
+package com.lukoseviciute.appLogic.util;
 
-import com.lukoseviciute.programming.models.Athlete;
-import com.lukoseviciute.programming.models.Mismatch;
+import com.lukoseviciute.appLogic.models.Athlete;
+import com.lukoseviciute.appLogic.models.Mismatch;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 public class CompareHelperTest {
 

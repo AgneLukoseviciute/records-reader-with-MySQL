@@ -1,13 +1,13 @@
-package com.lukoseviciute.programming.util;
+package com.lukoseviciute.appLogic.util;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import com.lukoseviciute.programming.models.Athlete;
+import com.lukoseviciute.appLogic.models.Athlete;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
-import com.lukoseviciute.programming.models.XMLRoot;
+import com.lukoseviciute.appLogic.models.XMLRoot;
 
 public class XMLFileReader implements FileReaderI {
 

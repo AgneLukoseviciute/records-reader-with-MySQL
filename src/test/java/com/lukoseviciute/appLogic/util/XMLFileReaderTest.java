@@ -1,18 +1,16 @@
-package com.lukoseviciute.programming.util;
+package com.lukoseviciute.appLogic.util;
 
-import com.lukoseviciute.programming.models.Athlete;
+import com.lukoseviciute.appLogic.models.Athlete;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.List;
 
-import static org.junit.Assert.*;
-
 public class XMLFileReaderTest {
 
     @Test
     public void intoObjects() {
-        String xmlFile = "src/test/java/com/lukoseviciute/programming/util/test.xml";
+        String xmlFile = "src/test/java/com/lukoseviciute/appLogic/util/test.xml";
         XMLFileReader read = new XMLFileReader();
         List<Athlete> athletes = read.intoObjects(xmlFile);
         Assert.assertEquals(4, athletes.size());
